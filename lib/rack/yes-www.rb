@@ -1,7 +1,7 @@
-require 'rack/no-www/version.rb'
+require 'rack/yes-www/version.rb'
 
 module Rack
-  class NoWWW
+  class YesWWW
 
     STARTS_WITH_WWW = /^www\./i
 
@@ -10,7 +10,7 @@ module Rack
     end
 
     def call(env)
-      if env['HTTP_HOST'] =~ STARTS_WITH_WWW
+      unless env['HTTP_HOST'] =~ STARTS_WITH_WWW
         [301, no_www_request(env), ["Moved Permanently\n"]]
       else
         @app.call(env)
@@ -19,7 +19,7 @@ module Rack
 
     private
     def no_www_request(env)
-      { 'Location' => Rack::Request.new(env).url.sub(/www\./i, '') }
+      { 'Location' => Rack::Request.new(env).url.sub('http://', 'http://www.') }
     end
 
   end
