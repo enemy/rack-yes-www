@@ -19,7 +19,7 @@ module Rack
 
     private
     def no_www_request(env)
-      { 'Location' => Rack::Request.new(env).url.sub('http://', 'http://www.') }
+      { 'Location' => Rack::Request.new(env).url.sub('://', '://www.') }
     end
 
   end
