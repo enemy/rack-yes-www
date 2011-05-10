@@ -1,7 +1,7 @@
 require File.expand_path("../lib/rack/yes-www/version", __FILE__)
 
 Gem::Specification.new do |s|
-  s.name        = "rack-no-www"
+  s.name        = "rack-yes-www"
   s.version     = Rack::YesWWW::VERSION
   s.platform    = Gem::Platform::RUBY
   s.authors     = ["lolcats"]
