@@ -1,1 +1,1 @@
-require 'rack/no-www'
+require 'rack/yes-www'
