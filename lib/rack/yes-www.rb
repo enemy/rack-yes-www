@@ -1,5 +1,3 @@
-require 'rack/yes-www/version.rb'
-
 module Rack
   class YesWWW
 
